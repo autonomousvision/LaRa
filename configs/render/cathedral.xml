@@ -1,0 +1,17 @@
+<scene version="2.1.0">
+	<emitter type="envmap">
+		<string name="filename" value="configs/render/cathedral.hdr" />
+		<float name="scale" value="0.5"/>
+        <transform name="to_world">
+            <rotate x="0.5" y="-1.5" z="0.5" angle="20"/>
+        </transform>
+	</emitter>
+
+        <!-- Point Light -->
+    <emitter type="point">
+        <point name="position" x="-2" y="-2" z="-3"/>
+        <spectrum name="intensity" value="50"/>
+    </emitter>
+
+
+</scene>

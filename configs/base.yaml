@@ -1,0 +1,70 @@
+gpu_id: [4,5,6,7]
+
+exp_name: LaRa/release-test
+n_views: 4
+
+model:
+
+    encoder_backbone: 'vit_base_patch16_224.dino' # ['vit_small_patch16_224.dino','vit_base_patch16_224.dino']
+
+    n_groups: [16]  # n_groups for local attention
+    n_offset_groups: 32     # offset radius of 1/n_offset_groups of the scene size
+
+    K: 2    # primitives per-voxel
+    sh_degree: 1    # view dependent color
+
+    num_layers: 12
+    num_heads: 16
+
+    view_embed_dim: 32
+    embedding_dim: 256
+
+    vol_feat_reso: 16
+    vol_embedding_reso: 32
+
+    vol_embedding_out_dim: 80
+
+    ckpt_path: null # specify a ckpt path if you want to continue training  
+
+train_dataset:
+    dataset_name: gobjeverse
+    data_root: dataset/gobjaverse/gobjaverse.h5
+
+    split: train
+    img_size: [512,512] # image resolution
+    n_group: ${n_views}   # image resolution
+    n_scenes: 3000000
+    load_normal: True
+
+    
+
+test_dataset:
+    dataset_name: gobjeverse
+    data_root: dataset/gobjaverse/gobjaverse.h5
+
+    split: test
+    img_size: [512,512]
+    n_group: ${n_views}
+    n_scenes: 3000000
+    load_normal: True
+
+train:
+    batch_size: 3
+    lr: 4e-4
+    beta1: 0.9
+    beta2: 0.95
+    weight_decay: 0.05
+    # betas: [0.9, 0.95]
+    warmup_iters: 1000
+    n_epoch: 30
+    limit_train_batches: 0.2
+    limit_val_batches: 0.02
+    check_val_every_n_epoch: 1
+    start_fine: 5000
+    use_rand_views: False
+test:
+    batch_size: 3
+
+logger: 
+    name: tensorboard
+    dir: logs/${exp_name}

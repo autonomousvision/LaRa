@@ -1,0 +1,133 @@
+<scene version="2.1.0">
+	<default name="spp" value="32"/>
+	<default name="resx" value="64"/>
+	<default name="resy" value="64"/>
+	<default name="pixel_format" value="rgb"/>
+	<default name="sample_border" value="true"/>
+	<default name="pixel_filter" value="gaussian"/>
+
+	<sampler type="independent" id="sampler">
+		<integer name="sample_count" value="$spp"/>
+	</sampler>
+
+	<film type="hdrfilm" id="film">
+		<integer name="width" value="$resx"/>
+		<integer name="height" value="$resy"/>
+		<string name="pixel_format" value="$pixel_format" />
+		<rfilter type="$pixel_filter" />
+		<boolean name="sample_border" value="$sample_border" />
+		<!-- <boolean name="detach_weight_sum" value="$detach_weight_sum" /> -->
+		<!-- <integer name="crop_offset_x" value="32"/>
+		<integer name="crop_offset_y" value="32"/>
+		<integer name="crop_width" value="2"/>
+		<integer name="crop_height" value="2"/> -->
+	</film>
+
+	<!-- <sensor type="spherical">
+		<transform name="to_world">
+			<lookat origin="0.35, 0.5, 0.9" target="0.5, 0.5, 0.5" up="0, 1, 0"/>
+		</transform>
+
+		<ref id="film"/>
+		<ref id="sampler"/>
+	</sensor> -->
+
+	<sensor type="perspective">
+		<float name="fov" value="39"/>
+		<transform name="to_world">
+			<lookat origin="0.5, 0.5, 2.8" target="0.5, 0.5, 0.5" up="0, 1, 0"/>
+		</transform>
+
+		<ref id="film"/>
+		<ref id="sampler"/>
+	</sensor>
+
+	<sensor type="perspective">
+		<float name="fov" value="39"/>
+		<transform name="to_world">
+			<lookat origin="0.5, 2.0, 0.5" target="0.5, 0.0, 0.5" up="1, 0, 0"/>
+		</transform>
+		<ref id="film"/>
+		<ref id="sampler"/>
+	</sensor>
+
+	<sensor type="perspective">
+		<float name="fov" value="39"/>
+		<transform name="to_world">
+			<lookat origin="-1.5, 0.5, 1" target="0.5, 0.5, 0.5" up="0, 1, 0"/>
+		</transform>
+
+		<ref id="film"/>
+		<ref id="sampler"/>
+	</sensor>
+
+	<sensor type="perspective">
+		<float name="fov" value="39"/>
+		<transform name="to_world">
+			<lookat origin="-1.5, 0.5, -1" target="0.5, 0.5, 0.5" up="0, 1, 0"/>
+		</transform>
+
+		<ref id="film"/>
+		<ref id="sampler"/>
+	</sensor>
+
+	<sensor type="perspective">
+		<float name="fov" value="39"/>
+		<transform name="to_world">
+			<lookat origin="1.5, 0.5, -1" target="0.5, 0.5, 0.5" up="0, 1, 0"/>
+		</transform>
+
+		<ref id="film"/>
+		<ref id="sampler"/>
+	</sensor>
+
+	<sensor type="perspective">
+		<float name="fov" value="39"/>
+		<transform name="to_world">
+			<lookat origin="1.5, 0.5, 1.5" target="0.5, 0.5, 0.5" up="0, 1, 0"/>
+		</transform>
+
+		<ref id="film"/>
+		<ref id="sampler"/>
+	</sensor>
+
+	<sensor type="perspective">
+		<float name="fov" value="39"/>
+		<transform name="to_world">
+			<lookat origin="0.0, 0.5, -1.5" target="0.5, 0.5, 0.5" up="0, 1, 0"/>
+		</transform>
+
+		<ref id="film"/>
+		<ref id="sampler"/>
+	</sensor>
+
+	<sensor type="perspective">
+		<float name="fov" value="39"/>
+		<transform name="to_world">
+			<lookat origin="0.5, 2, 0.8" target="0.51, 0.5, 0.5" up="0, 0, 1"/>
+		</transform>
+
+		<ref id="film"/>
+		<ref id="sampler"/>
+	</sensor>
+
+	<sensor type="perspective">
+		<float name="fov" value="39"/>
+		<transform name="to_world">
+			<lookat origin="0.5, -1, 0.8" target="0.51, 0.5, 0.5" up="0, 0, 1"/>
+		</transform>
+
+		<ref id="film"/>
+		<ref id="sampler"/>
+	</sensor>
+
+	<sensor type="perspective">
+		<float name="fov" value="39"/>
+		<transform name="to_world">
+			<lookat origin="0.5, 0.5, 2" target="0.51, 0.5, 0.5" up="0, 0, 1"/>
+		</transform>
+
+		<ref id="film"/>
+		<ref id="sampler"/>
+	</sensor>
+</scene>

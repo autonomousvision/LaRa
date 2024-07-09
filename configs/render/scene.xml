@@ -1,0 +1,26 @@
+<scene version="2.1.0">
+	<!-- <path value="../../"/> -->
+	<include filename="configs/render/common.xml"/>
+	<default name="emitter_scene" value="configs/render/cathedral.xml"/>
+    <include filename="$emitter_scene"/>
+
+    <!-- <bsdf type="thindielectric" id="plastic_bsdf">
+        <rgb name="specular_transmittance" value="0.7, 0.8, 0.95"/>
+    </bsdf> -->
+
+    <bsdf type="roughplastic" id="plastic_bsdf">
+        <float name="alpha" value="0.1" />
+        <rgb name="diffuse_reflectance" value="0.25, 0.5, 0.8"/>
+    </bsdf>
+
+	<default name="main_bsdf_name" value="plastic_bsdf"/>
+
+	<shape type="$mesh_type">
+		<ref id="$main_bsdf_name" name="bsdf"/>
+        <string name="filename" value="$mesh_path"/>
+        <transform name="to_world">
+            <translate x="0.0" y="0.0" z="0.0"/>
+        </transform>
+	</shape>
+
+</scene>

@@ -1,0 +1,41 @@
+<scene version="2.1.0">
+	<default name="spp" value="32"/>
+	<default name="resx" value="64"/>
+	<default name="resy" value="64"/>
+	<default name="disable_edge_gradient" value="false"/>
+	<default name="disable_shading_gradient" value="false"/>
+	<default name="edge_epsilon" value="0.01"/>
+	<default name="legacy_mode" value="false"/>
+	<default name="max_depth" value="3"/>
+	<default name="refined_intersection" value="false"/>
+	<default name="integrator" value="path"/>
+	<default name="integrator_file" value="integrator_sdf.xml"/>
+	<default name="pixel_format" value="rgb"/>
+	<default name="sample_border" value="true"/>
+	<default name="use_aovs" value="false"/>
+	<default name="pixel_filter" value="gaussian"/>
+	<default name="sdf_filename" value=""/>
+	<default name="sensors_filename" value="sensors.xml"/>
+	<default name="use_mis" value="false"/>
+	<default name="hide_emitters" value="false"/>
+	<default name="use_antithetic_sampling" value="false"/>
+	<default name="detach_weight_sum" value="false"/>
+	<default name="decouple_reparam" value="false"/>
+	<default name="detach_indirect_si" value="false"/>
+	<default name="reparam_primary_only" value="false"/>
+
+	<include filename="$integrator_file"/>
+	<include filename="$sensors_filename"/>
+
+	<bsdf type="twosided" id="default-bsdf">
+		<bsdf type="diffuse">
+			<rgb name="reflectance" value="0.5, 0.5, 0.5"/>
+		</bsdf>
+	</bsdf>
+
+	<bsdf type="twosided" id="red-bsdf">
+		<bsdf type="diffuse">
+			<rgb name="reflectance" value="0.8, 0.2, 0.2"/>
+		</bsdf>
+	</bsdf>
+</scene>

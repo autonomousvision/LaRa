@@ -1,0 +1,7 @@
+<scene version="2.1.0">
+	<integrator type="path">
+		<integer name="max_depth" value="$max_depth"/>
+        <boolean name="hide_emitters" value="true"/>
+	</integrator>
+</scene>
+

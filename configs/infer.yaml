@@ -1,0 +1,65 @@
+n_views: 4
+
+infer:
+    dataset:
+        # dataset_name: gobjeverse
+        # data_root: dataset/gobjaverse_280k/gobjaverse_280k.hdf5
+        # data_root: dataset/Co3D/co3d_teddybear.hdf5
+        # data_root: dataset/Co3D/co3d_hydrant.hdf5
+
+        # dataset_name: GSO
+        # data_root: dataset/google_scanned_objects
+
+        # dataset_name: instant3d
+        # data_root: dataset/instant3D
+
+        # text to 3D
+        dataset_name: mvgen
+        generator_type: instant3d
+        prompts: ["a car made out of sushi"]
+        image_pathes: []
+
+        ## single view to 3D
+        # dataset_name: mvgen
+        # generator_type: zero123plus-v1.1 # zero123plus-v1.1,zero123plus-v1.2,sv3d
+        # prompts: []
+        # image_pathes: ['examples/19_dalle3_stump1.png']
+
+        # # unposed inputs
+        # dataset_name: unposed
+        # image_pathes: examples/unposed/*.png
+
+        split: test
+        img_size: [512,512]
+        n_group: 4
+        n_scenes: 30000
+        num_workers: 0
+        batch_size: 1
+
+        load_normal: False
+
+    ckpt_path: ckpts/lara.ckpt
+
+    eval_novel_view_only: True
+    eval_depth: []
+    metric_path: None
+
+    save_folder: outputs/video_vis/mvgen
+    video_frames: 120
+    mesh_video_frames: 0
+
+    save_mesh: True
+    aabb: [-0.5,-0.5,-0.5,0.5,0.5,0.5]
+
+    finetuning: 
+        with_ft: False
+        steps: 500
+
+        # lr
+        position_lr: 0.000016
+        feature_lr: 0.0025
+        opacity_lr: 0.05
+        scaling_lr: 0.005
+        rotation_lr: 0.001
+
+
