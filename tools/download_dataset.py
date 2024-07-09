@@ -34,7 +34,7 @@ local_dir = "."  # Replace with your local destination directory
 
 gso_list = ['GSO.zip']
 co3d_list = ['Co3D/co3d_hydrant.h5','Co3D/co3d_teddybear.h5']
-gobjaverse_list = [f'gobjaverse/gobjaverse_part_{i+1:02d}.h5' for i in range(8)] #+ ['gobjaverse/gobjaverse.h5']
+gobjaverse_list = [f'gobjaverse/gobjaverse_part_{i+1:02d}.h5' for i in range(32)] + ['gobjaverse/gobjaverse.h5']
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="download files.")
