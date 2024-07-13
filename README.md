@@ -62,7 +62,7 @@ python evaluation.py configs/infer.yaml
        infer.dataset.generator_type=xxx
        infer.dataset.prompts=["a car made out of sushi","a beautiful rainbow fish"]
 ```
-**note:** This part is not avariable now due the permission issue.
+**note:** This part is currently unavailable due to a permissions issue. I will look for an alternative text-to-multi-view generator later next week.
 
 
 ## single view to 3D
