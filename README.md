@@ -45,7 +45,7 @@ python train_lightning.py
 **note:** You can configure the GPU id and other parameter with `configs/base.yaml`.
 
 # Evaluation
-Our method supports the reconstruction of radiance fields from **multi-view**, **text**, and **single view** inputs. We provide a pre-trained checkpoint at [ckpt](#https://huggingface.co/apchen/LaRa/resolve/main/ckpts/epoch%3D29.ckpt).
+Our method supports the reconstruction of radiance fields from **multi-view**, **text**, and **single view** inputs. We provide a pre-trained checkpoint at [ckpt](https://huggingface.co/apchen/LaRa/resolve/main/ckpts/epoch%3D29.ckpt).
 
 ## multi-view to 3D
 To reproduce the table results, you can simply use:
@@ -54,7 +54,7 @@ python eval_all.py
 ```
 **note:** 
 - Please double-check that the paths inside the script are correct for your specific case.
-- Please specify the video_frames and save_mesh [labels](#https://github.com/autonomousvision/LaRa/blob/main/eval_all.py#L11) if you would like to output mesh or video during the evaluation
+- Please specify the video_frames and save_mesh [labels](https://github.com/autonomousvision/LaRa/blob/main/eval_all.py#L11) if you would like to output mesh or video during the evaluation
 
 ## text to 3D
 ```
