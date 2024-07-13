@@ -33,12 +33,13 @@ class MVGenDataset(torch.utils.data.Dataset):
         self.prompts = cfg.get("prompts", [])
         self.image_pathes = cfg.get("image_pathes", [])
 
-        if len(self.image_pathes) and os.path.isdir(self.image_pathes):
+        if isinstance(self.image_pathes, str) and os.path.isdir(self.image_pathes):
             image_pathes = []
             for extension in image_extensions:
                 search_pattern = os.path.join(self.image_pathes, extension)
                 image_pathes.extend(glob(search_pattern))
             self.image_pathes = image_pathes
+                
 
         self.bg_color = 1.0
 
@@ -139,7 +140,7 @@ class MVGenDataset(torch.utils.data.Dataset):
                     'tar_w2c': w2cs,
                     'tar_ixt': ixts,
                     'tar_rgb': images,
-                    'bg_color': bg_color,
+                    'bg_color': bg_color[None].repeat(len(c2ws),0),
                     'transform_mats': transform_mats
                     })
 

@@ -38,7 +38,6 @@ You can also download our preprocessed data and put them to `dataset` folder:
 * [Google Scaned Object](#GSO)
 * [Co3D](#Co3D) 
 * Instant3D - Please contact the authors of Instant3D if you wish to obtain the data for comparison.
-
 # Training
 ```
 python train_lightning.py
@@ -58,20 +57,21 @@ python eval_all.py
 ## text to 3D
 ```
 python evaluation.py configs/infer.yaml 
-       infer.ckpt_path=ckpts/lara.ckpt
+       infer.ckpt_path=ckpts/epoch=29.ckpt
        infer.save_folder=outputs/prompts/
-       infer.dataset.generator_type=instant3d
+       infer.dataset.generator_type=xxx
        infer.dataset.prompts=["a car made out of sushi","a beautiful rainbow fish"]
 ```
-**note:** You can specify multiply prompts.
+**note:** This part is not avariable now due the permission issue.
+
 
 ## single view to 3D
 ```
 python evaluation.py configs/infer.yaml 
-       infer.ckpt_path=ckpts/lara.ckpt
+       infer.ckpt_path=ckpts/epoch=29.ckpt
        infer.save_folder=outputs/single-view/
-       infer.dataset.generator_type="zero123plus-v1.1"
-       infer.dataset.image_pathes=\["assets/examples/19_dalle3_stump1.png"\]
+       infer.dataset.generator_type="zero123plus-v1"
+       infer.dataset.image_pathes=\["assets/examples/13_realfusion_cherry_1.png"\]
 ```
 **note:** It supports the generator types `zero123plus-v1.1` and `zero123plus-v1`.
 
